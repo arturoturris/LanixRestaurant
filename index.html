@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,300&family=Playfair+Display:ital,wght@0,400;1,600&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="./style.css">
+    <title>Restaurante</title>
+</head>
+<body>
+    <head>
+
+    </head>
+    <main>
+        <h1 class="titulo">Restaurante Lanix</h1>
+        <section class="acciones">
+            <button>Abrir restaurante</button>
+            <button>Cerrar restaurante</button>
+        </section>
+        <section class="platillos">
+            <table id="listaPlatillos">
+                <p class="subtitulo">Lista de platillos</p>
+                <div class="acciones-orden">
+                    <button>Agregar</button>
+                </div>
+                <thead>
+                    <th>Tipo</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Acciones</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Aperitivo</td>
+                        <td>Alitas</td>
+                        <td class="moneda">120.00</td>
+                        <td>
+                            <a href="#">Editar</a>
+                            <a href="#">Eliminar</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Carne</td>
+                        <td>Hamburguesa</td>
+                        <td class="moneda">130.00</td>
+                        <td>
+                            <a href="#">Editar</a>
+                            <a href="#">Eliminar</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Pescado</td>
+                        <td>Pescado asado</td>
+                        <td class="moneda">160.00</td>
+                        <td>
+                            <a href="#">Editar</a>
+                            <a href="#">Eliminar</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Postre</td>
+                        <td>Flan napolitano</td>
+                        <td class="moneda">65.00</td>
+                        <td>
+                            <a href="#">Editar</a>
+                            <a href="#">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="orden">
+            <p class="subtitulo" id="tituloOrden">Orden No. 120</p>
+            <div class="acciones-orden">
+                <button>Agregar platillo</button>
+                <button>Reiniciar</button>
+            </div>
+            <table id="platillosOrden">
+                <thead>
+                    <th>Cantidad</th>
+                    <th>Tipo</th>
+                    <th>Nombre</th>
+                    <th class="titulo-moneda">Precio</th>
+                    <th class="titulo-moneda">Subtotal</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Aperitivo</td>
+                        <td>Alitas</td>
+                        <td class="moneda">120.00</td>
+                        <td class="moneda">120.00</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Carne</td>
+                        <td>Hamburguesa</td>
+                        <td class="moneda">130.00</td>
+                        <td class="moneda">120.00</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Pescado</td>
+                        <td>Pescado asado</td>
+                        <td class="moneda">160.00</td>
+                        <td class="moneda">160.00</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Postre</td>
+                        <td>Flan napolitano</td>
+                        <td class="moneda">65.00</td>
+                        <td class="moneda">65.00</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="titulo-moneda bold">TOTAL</td>
+                        <td class="moneda">420.00</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="acciones-orden">
+                <button>Concretar</button>
+            </div>
+        </section>
+        <section class="historial">
+            <p class="subtitulo">Historial de ventas</p>
+            <p class="bold">Número de ordenes</p>
+            <p id="numeroOrdenes">1</p>
+            <p class="bold">Ganancias totales</p>
+            <p id="gananciasTotales">$460.00</p>
+        </section>
+        <section class="datos">
+            <p>Luis Arturo Tenorio López</p>
+            <p>201749575</p>
+            <p>16/10/2020</p>
+        </section>
+    </main>
+    <footer></footer>
+</body>
+</html>

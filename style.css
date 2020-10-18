@@ -1,0 +1,105 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.titulo {
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 2rem;
+  grid-area: titulo;
+  padding: 10px;
+  text-align: center;
+}
+
+.subtitulo {
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.3rem;
+  padding: 10px;
+}
+
+th,
+td {
+  padding: 10px;
+}
+
+.moneda,
+.titulo-moneda {
+  text-align: right !important;
+}
+
+.moneda::before {
+  content: "$";
+}
+
+button {
+  padding: 5px;
+  letter-spacing: 0.1em;
+}
+
+main {
+  display: grid;
+  grid-template-areas:
+    "titulo titulo titulo"
+    "acciones acciones acciones"
+    "platillos orden orden"
+    "historial historial historial"
+    "datos datos datos";
+  grid-template-columns: repeat(3, 1fr);
+  height: 100vh;
+  width: 100%;
+}
+
+section[class="acciones"] {
+  grid-area: acciones;
+  justify-self: end;
+  align-self: end;
+}
+
+section[class="platillos"] {
+  grid-area: platillos;
+  padding: 15px;
+}
+
+table {
+  border-collapse: collapse;
+  text-align: center;
+  width: 100%;
+}
+
+table tr {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+section[class="orden"] {
+  grid-area: orden;
+  padding: 15px 25px;
+}
+
+[class="acciones-orden"] {
+  display: flex;
+  padding: 10px;
+  justify-content: end;
+}
+
+section[class="historial"] {
+  grid-area: historial;
+  padding: 10px;
+  text-align: center;
+}
+
+section[class="datos"] {
+  grid-area: datos;
+  padding: 15px;
+  text-align: center;
+}
