@@ -18,11 +18,25 @@
             <button>Cerrar restaurante</button>
         </section>
         <section class="platillos">
+            <p class="subtitulo">Lista de platillos</p>
+            <div class="acciones-orden">
+                <button id="btnAgregarPlatillo">Agregar platillo</button>
+                <form id="formPlatillos" class="hide">
+                    <input type="hidden" name="id" id="id123">
+                    <label>
+                        Tipo:<input type="text" name="tipo" required/>
+                    </label>
+                    <label>
+                        Nombre:<input type="text" name="nombre" required/>
+                    </label>
+                    <label>
+                        Precio<input type="number" name="precio" min="0" max="99999" step="1.5" required/>
+                    </label>
+                    <input type="submit" value="Confirmar"/>
+                    <button type="button" id="btnCancelarPlatillo">Cancelar</button>
+                </form>
+            </div>
             <table id="listaPlatillos">
-                <p class="subtitulo">Lista de platillos</p>
-                <div class="acciones-orden">
-                    <button>Agregar</button>
-                </div>
                 <thead>
                     <th>Tipo</th>
                     <th>Nombre</th>
@@ -30,42 +44,6 @@
                     <th>Acciones</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Aperitivo</td>
-                        <td>Alitas</td>
-                        <td class="moneda">120.00</td>
-                        <td>
-                            <a href="#">Editar</a>
-                            <a href="#">Eliminar</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Carne</td>
-                        <td>Hamburguesa</td>
-                        <td class="moneda">130.00</td>
-                        <td>
-                            <a href="#">Editar</a>
-                            <a href="#">Eliminar</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Pescado</td>
-                        <td>Pescado asado</td>
-                        <td class="moneda">160.00</td>
-                        <td>
-                            <a href="#">Editar</a>
-                            <a href="#">Eliminar</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Postre</td>
-                        <td>Flan napolitano</td>
-                        <td class="moneda">65.00</td>
-                        <td>
-                            <a href="#">Editar</a>
-                            <a href="#">Eliminar</a>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </section>
@@ -134,12 +112,12 @@
             <p class="bold">Ganancias totales</p>
             <p id="gananciasTotales">$460.00</p>
         </section>
-        <section class="datos">
-            <p>Luis Arturo Tenorio López</p>
-            <p>201749575</p>
-            <p>16/10/2020</p>
-        </section>
     </main>
-    <footer></footer>
+    <footer class="datos">
+        <p>Luis Arturo Tenorio López</p>
+        <p>201749575</p>
+        <p>16/10/2020</p>
+    </footer>
+    <script src='./app.js' type="module"></script>
 </body>
 </html>

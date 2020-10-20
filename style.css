@@ -98,8 +98,17 @@ section[class="historial"] {
   text-align: center;
 }
 
-section[class="datos"] {
+footer[class="datos"] {
   grid-area: datos;
   padding: 15px;
   text-align: center;
+}
+
+.hide {
+  display: none !important;
+}
+
+#formPlatillos {
+  display: flex;
+  flex-wrap: wrap;
 }
