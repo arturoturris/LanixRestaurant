@@ -3,19 +3,9 @@ class ListaPlatillos{
         this.lista = [];
     }
 
-    agregarPlatillo = (platillo) => {
-        this.lista.push(platillo);
-    }
-
+    
     obtenerIndexPlatillo = (nombrePlatillo) => this.lista.findIndex(platillo => platillo.nombre === nombrePlatillo);
     
-    removerPlatillo = (nombrePlatillo) => {
-        let index = this.obtenerIndexPlatillo(nombrePlatillo);
-
-        if(index != -1)
-            this.lista.splice(index,1);
-    }
-
     obtenerPlatillo = (nombrePlatillo) => {
         let index = this.obtenerIndexPlatillo(nombrePlatillo);
 
@@ -24,6 +14,25 @@ class ListaPlatillos{
 
         return null;
     }
+
+    agregarPlatillo = (platillo) => {
+        this.lista.push(platillo);
+    }
+
+    editarPlatillo = (nombrePlatilloOriginal,platilloModificado) => {
+        let index = this.obtenerIndexPlatillo(nombrePlatilloOriginal);
+
+        if(index != -1)
+            this.lista[index] = platilloModificado;
+    }
+
+    removerPlatillo = (nombrePlatillo) => {
+        let index = this.obtenerIndexPlatillo(nombrePlatillo);
+
+        if(index != -1)
+            this.lista.splice(index,1);
+    }
+
 }
 
 export {ListaPlatillos};

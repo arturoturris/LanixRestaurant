@@ -14,8 +14,8 @@
     <main>
         <h1 class="titulo">Restaurante Lanix</h1>
         <section class="acciones">
-            <button>Abrir restaurante</button>
-            <button>Cerrar restaurante</button>
+            <button id="btnAbrirRestaurante">Abrir restaurante</button>
+            <button id="btnCerrarRestaurante">Cerrar restaurante</button>
         </section>
         <section class="platillos">
             <p class="subtitulo">Lista de platillos</p>
@@ -30,7 +30,7 @@
                         Nombre:<input type="text" name="nombre" required/>
                     </label>
                     <label>
-                        Precio<input type="number" name="precio" min="0" max="99999" step="1.5" required/>
+                        Precio<input type="number" name="precio" min="0" max="99999" step="0.1" required/>
                     </label>
                     <input type="submit" value="Confirmar"/>
                     <button type="button" id="btnCancelarPlatillo">Cancelar</button>
@@ -48,10 +48,23 @@
             </table>
         </section>
         <section class="orden">
-            <p class="subtitulo" id="tituloOrden">Orden No. 120</p>
+            <p class="subtitulo" id="tituloOrden">Orden No. </p>
             <div class="acciones-orden">
-                <button>Agregar platillo</button>
-                <button>Reiniciar</button>
+                <form id="formularioOrden">
+                    <label>
+                        Cantidad: <input type="number" name="cantidad" min="0" step="1">
+                    </label>
+                    <label>
+                        Platillo:
+                        <select name="platillo" id="opcionesDePlatillos">
+                            <option value="Refresco">Refresco1</option>
+                            <option value="Refresco 2">Refresco1</option>
+                        </select>
+                    </label>
+                    <button type="button" id="btnActualizarOpciones">Actualizar opciones</button>
+                    <button type="submit">Agregar platillo</button>
+                    <button type="button">Reiniciar</button>
+                </form>
             </div>
             <table id="platillosOrden">
                 <thead>
@@ -62,34 +75,6 @@
                     <th class="titulo-moneda">Subtotal</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Aperitivo</td>
-                        <td>Alitas</td>
-                        <td class="moneda">120.00</td>
-                        <td class="moneda">120.00</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Carne</td>
-                        <td>Hamburguesa</td>
-                        <td class="moneda">130.00</td>
-                        <td class="moneda">120.00</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Pescado</td>
-                        <td>Pescado asado</td>
-                        <td class="moneda">160.00</td>
-                        <td class="moneda">160.00</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Postre</td>
-                        <td>Flan napolitano</td>
-                        <td class="moneda">65.00</td>
-                        <td class="moneda">65.00</td>
-                    </tr>
                 </tbody>
                 <tfoot>
                     <tr>
@@ -97,20 +82,20 @@
                         <td></td>
                         <td></td>
                         <td class="titulo-moneda bold">TOTAL</td>
-                        <td class="moneda">420.00</td>
+                        <td class="moneda"></td>
                     </tr>
                 </tfoot>
             </table>
             <div class="acciones-orden">
-                <button>Concretar</button>
+                <button id="concretarOrden">Concretar</button>
             </div>
         </section>
-        <section class="historial">
+        <section class="historial hide">
             <p class="subtitulo">Historial de ventas</p>
             <p class="bold">Número de ordenes</p>
-            <p id="numeroOrdenes">1</p>
+            <p id="numeroOrdenes"></p>
             <p class="bold">Ganancias totales</p>
-            <p id="gananciasTotales">$460.00</p>
+            <p id="gananciasTotales"></p>
         </section>
     </main>
     <footer class="datos">

@@ -16,6 +16,10 @@ class Restaurante{
         this.historialOrdenes.push(orden);
     }
 
+    iniciarNuevoDia = () => {this.historialOrdenes.length = 0};
+
+    obtenerHistorialOrdenes = () => this.historialOrdenes;
+
     obtenerGananciasDelDia = () => {
         let total = this.historialOrdenes.reduce((totalGanancias,orden) =>
             {return totalGanancias + orden.obtenerTotal()},

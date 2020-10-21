@@ -1,6 +1,8 @@
 import {Concepto} from './concepto.js'
 
 class Orden{
+    static numeroOrden = 0;
+
     constructor(numeroOrden){
         this.numeroOrden = numeroOrden;
         this.conceptos = new Map();
@@ -19,6 +21,10 @@ class Orden{
         return total;
     }               
     
+    static obtenerNumeroOrden = () => {
+        Orden.numeroOrden += 1;
+        return Orden.numeroOrden;
+    }
 }
 
 export {Orden};
