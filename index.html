@@ -4,92 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,300&family=Playfair+Display:ital,wght@0,400;1,600&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
     <title>Restaurante</title>
 </head>
 <body>
     <head>
-
+        <h1 class="titulo">Restaurante Lanix</h1>
     </head>
     <main>
-        <h1 class="titulo">Restaurante Lanix</h1>
-        <section class="acciones">
+        <section class="alineacionDerecha">
             <button id="btnAbrirRestaurante">Abrir restaurante</button>
             <button id="btnCerrarRestaurante">Cerrar restaurante</button>
         </section>
-        <section class="platillos">
-            <p class="subtitulo">Lista de platillos</p>
-            <div class="acciones-orden">
-                <button id="btnAgregarPlatillo">Agregar platillo</button>
-                <form id="formPlatillos" class="hide">
-                    <input type="hidden" name="id" id="id123">
-                    <label>
-                        Tipo:<input type="text" name="tipo" required/>
-                    </label>
-                    <label>
-                        Nombre:<input type="text" name="nombre" required/>
-                    </label>
-                    <label>
-                        Precio<input type="number" name="precio" min="0" max="99999" step="0.1" required/>
-                    </label>
-                    <input type="submit" value="Confirmar"/>
-                    <button type="button" id="btnCancelarPlatillo">Cancelar</button>
-                </form>
-            </div>
-            <table id="listaPlatillos">
-                <thead>
-                    <th>Tipo</th>
-                    <th>Nombre</th>
-                    <th>Precio</th>
-                    <th>Acciones</th>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </section>
-        <section class="orden">
-            <p class="subtitulo" id="tituloOrden">Orden No. </p>
-            <div class="acciones-orden">
-                <form id="formularioOrden">
-                    <label>
-                        Cantidad: <input type="number" name="cantidad" min="0" step="1">
-                    </label>
-                    <label>
-                        Platillo:
-                        <select name="platillo" id="opcionesDePlatillos">
-                            <option value="Refresco">Refresco1</option>
-                            <option value="Refresco 2">Refresco1</option>
-                        </select>
-                    </label>
-                    <button type="button" id="btnActualizarOpciones">Actualizar opciones</button>
-                    <button type="submit">Agregar platillo</button>
-                    <button type="button">Reiniciar</button>
-                </form>
-            </div>
-            <table id="platillosOrden">
-                <thead>
-                    <th>Cantidad</th>
-                    <th>Tipo</th>
-                    <th>Nombre</th>
-                    <th class="titulo-moneda">Precio</th>
-                    <th class="titulo-moneda">Subtotal</th>
-                </thead>
-                <tbody>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td class="titulo-moneda bold">TOTAL</td>
-                        <td class="moneda"></td>
-                    </tr>
-                </tfoot>
-            </table>
-            <div class="acciones-orden">
-                <button id="concretarOrden">Concretar</button>
-            </div>
-        </section>
+        <div class="grid">
+            <section class="platillos">
+                <div id="fondoPlatillos"></div>
+                <p class="subtitulo">Lista de platillos</p>
+                <div class="acciones-orden">
+                    <div class="alineacionDerecha">
+                        <button id="btnAgregarPlatillo">Agregar platillo</button>
+                    </div>
+                    <form id="formPlatillos" class="hide">
+                        <input type="hidden" name="id" id="id123">
+                        <div class="inputs">
+                            <label>
+                                Tipo: <input type="text" name="tipo" required/>
+                            </label>
+                            <label>
+                                Nombre: <input type="text" name="nombre" required/>
+                            </label>
+                            <label>
+                                Precio: <input type="number" name="precio" min="0" max="99999" step="0.1" required/>
+                            </label>
+                        </div>
+                        <div class="operaciones">
+                            <!-- <input type="submit" value="Confirmar"/> -->
+                            <button type="submit" value="Confirmar">Confirmar</button>
+                            <button type="button" id="btnCancelarPlatillo">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+                <table id="listaPlatillos">
+                    <thead>
+                        <th>Tipo</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </section>
+            <section class="orden">
+                <div id="ordenFondo"></div>
+                <div id="vistaNuevaOrden" class="hide">
+                    <button type="button" id="btnNuevaOrden">Nueva Orden</button>
+                </div>
+                <div id="contenidoOrden">
+                    <p class="subtitulo" id="tituloOrden">Orden No. </p>
+                    <div class="acciones-orden">
+                        <form id="formularioOrden">
+                            <div class="inputs">
+                                <label id="lblCantidad">
+                                    Cantidad: <input type="number" name="cantidad" min="0" step="1">
+                                </label>
+                                <label id="lblPlatillo">
+                                    Platillo: 
+                                    <select name="platillo" id="opcionesDePlatillos">
+                                        <option value="Refresco">Refresco1</option>
+                                        <option value="Refresco 2">Refresco1</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="operaciones">
+                                <button type="button" id="btnActualizarOpciones">Actualizar opciones</button>
+                                <button type="submit">Agregar platillo</button>
+                                <button type="button" id="btnReiniciarOrden">Reiniciar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <table id="platillosOrden">
+                    <thead>
+                        <th>Cantidad</th>
+                        <th>Tipo</th>
+                        <th>Nombre</th>
+                        <th class="titulo-moneda">Precio</th>
+                        <th class="titulo-moneda">Subtotal</th>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="titulo-moneda bold">TOTAL</td>
+                            <td class="moneda"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="acciones-orden alineacionDerecha">
+                    <button id="concretarOrden">Concretar</button>
+                </div>
+            </section>
+        </div>
         <section class="historial hide">
             <p class="subtitulo">Historial de ventas</p>
             <p class="bold">Número de ordenes</p>
@@ -102,6 +122,7 @@
         <p>Luis Arturo Tenorio López</p>
         <p>201749575</p>
         <p>16/10/2020</p>
+        <p><span class="bold">Nota:</span> Es necesario abrir el archivo con ayuda de Live Server de VS Code o con cualquier otro servidor local, debido a que los archivos JS incluye la nomenclatura módulo y se genera un bloqueo de tipo CORS.</p>
     </footer>
     <script src='./app.js' type="module"></script>
 </body>

@@ -21,7 +21,9 @@ class ListaPlatillos_Control{
         const tdPrecio = document.createElement('td');
         const tdAcciones = document.createElement('td');
         const aEditar = document.createElement('a');
+        const iEditar = document.createElement('i');
         const aEliminar = document.createElement('a');
+        const iEliminar = document.createElement('i');
 
         tdTipo.appendChild(document.createTextNode(`${platillo.tipo}`));
         tdNombre.appendChild(document.createTextNode(`${platillo.nombre}`));
@@ -33,18 +35,20 @@ class ListaPlatillos_Control{
 
         aEditar.setAttribute('href',`#`);
         aEditar.setAttribute('platillo',`${platillo.nombre}`);
-        aEditar.appendChild(document.createTextNode('Editar'));
+        iEditar.setAttribute('class','fas fa-edit');
+        aEditar.appendChild(iEditar);
         aEditar.addEventListener('click',(e) => {
             e.preventDefault();
-            this.onEditarPlatillo(`${e.target.attributes.getNamedItem('platillo').value}`);
+            this.onEditarPlatillo(`${e.target.parentElement.attributes.getNamedItem('platillo').value}`);
         });
         aEliminar.setAttribute('href','#');
         aEliminar.setAttribute('platillo',`${platillo.nombre}`);
-        aEliminar.appendChild(document.createTextNode('Eliminar'));
+        iEliminar.setAttribute('class','far fa-trash-alt');
+        aEliminar.appendChild(iEliminar);
         aEliminar.addEventListener('click',(e) => {
             e.preventDefault();
-            this.onEliminarPlatillo(`${e.target.attributes.getNamedItem('platillo').value}`);
-            this.eliminarPlatilloDeVista(e.target.parentElement.parentElement);
+            this.onEliminarPlatillo(`${e.target.parentElement.attributes.getNamedItem('platillo').value}`);
+            this.eliminarPlatilloDeVista(e.target.parentElement.parentElement.parentElement);
         });
 
         tr.appendChild(tdTipo);

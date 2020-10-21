@@ -25,6 +25,10 @@ class Orden{
         Orden.numeroOrden += 1;
         return Orden.numeroOrden;
     }
+
+    reiniciarOrden = () => {
+        this.conceptos = new Map();
+    }
 }
 
 export {Orden};

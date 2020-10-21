@@ -9,11 +9,15 @@ class Orden_Control{
         this.historial = historial;
 
         this.desplegarOpcionesDePlatillos();
+        this.mostrarOrden();
+        this.mostrarPantallaInicial(true);
 
         //EVENTOS
         document.querySelector('#btnActualizarOpciones').addEventListener('click',this.desplegarOpcionesDePlatillos);
         document.querySelector('#formularioOrden').addEventListener('submit',this.onAgregarPlatillo);
         document.querySelector('#concretarOrden').addEventListener('click',this.onConcretarOrden);
+        document.querySelector('#btnReiniciarOrden').addEventListener('click',this.onReiniciarOrden);
+        document.querySelector('#btnNuevaOrden').addEventListener('click',() => {this.mostrarPantallaInicial(false)});
     }
 
     desplegarOpcionesDePlatillos = () => {
@@ -28,6 +32,12 @@ class Orden_Control{
 
     nuevaOrden = () => {
         this.orden = new Orden(Orden.obtenerNumeroOrden());
+        document.querySelector('#formularioOrden').querySelector('input[name="cantidad"]').value = 1;
+    }
+
+    onReiniciarOrden = () => {
+        this.orden.reiniciarOrden();
+        this.mostrarOrden();
     }
 
     onAgregarPlatillo = (e) => {
@@ -56,7 +66,7 @@ class Orden_Control{
                 <td>${concepto.platillo.tipo}</td>
                 <td>${concepto.platillo.nombre}</td>
                 <td class="moneda">${concepto.platillo.precio}</td>
-                <td class="moneda">${concepto.obtenerSubtotal()}</td>
+                <td class="moneda">${concepto.obtenerSubtotal().toFixed(2)}</td>
             </tr>
               `;
           }  
@@ -65,10 +75,22 @@ class Orden_Control{
         this.vista.querySelector('tfoot').querySelector('td[class="moneda"]').innerHTML = this.orden.obtenerTotal().toFixed(2);
     }
 
+    mostrarPantallaInicial = (mostrar) => {
+        if(mostrar){
+            document.querySelector('#vistaNuevaOrden').classList.remove('hide');
+            document.querySelector('#contenidoOrden').classList.add('hide');
+        }
+        else{
+            document.querySelector('#vistaNuevaOrden').classList.add('hide');
+            document.querySelector('#contenidoOrden').classList.remove('hide');
+        }
+    }
+
     onConcretarOrden = () => {
         this.historial.push(this.orden);
         this.nuevaOrden();
         this.mostrarOrden();
+        this.mostrarPantallaInicial(true);
     }
 }
 
