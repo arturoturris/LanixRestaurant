@@ -1,31 +1,32 @@
-import {Orden} from './orden.js';
-import {ListaPlatillos} from './ListaPlatillos.js';
+import { ListaPlatillos } from "./listaPlatillos.js";
 
-class Restaurante{    
-    constructor(){
-        this.listaDePlatillos = new ListaPlatillos();
-        this.abierto = false;
-        this.historialOrdenes = [];
-    }
+class Restaurante {
+  constructor() {
+    this.listaDePlatillos = new ListaPlatillos();
+    this.abierto = false;
+    this.historialOrdenes = [];
+  }
 
-    abrirRestaurante = (abrir) => this.abierto = abrir;
+  abrirRestaurante = (abrir) => (this.abierto = abrir);
 
-    obtenerListaDePlatillos = () => this.listaDePlatillos;
+  obtenerListaDePlatillos = () => this.listaDePlatillos;
 
-    agregarOrdenAHistorial = (orden) => {
-        this.historialOrdenes.push(orden);
-    }
+  agregarOrdenAHistorial = (orden) => {
+    this.historialOrdenes.push(orden);
+  };
 
-    iniciarNuevoDia = () => {this.historialOrdenes.length = 0};
+  iniciarNuevoDia = () => {
+    this.historialOrdenes.length = 0;
+  };
 
-    obtenerHistorialOrdenes = () => this.historialOrdenes;
+  obtenerHistorialOrdenes = () => this.historialOrdenes;
 
-    obtenerGananciasDelDia = () => {
-        let total = this.historialOrdenes.reduce((totalGanancias,orden) =>
-            {return totalGanancias + orden.obtenerTotal()},
-            0)
-        return total;
-    }
+  obtenerGananciasDelDia = () => {
+    let total = this.historialOrdenes.reduce((totalGanancias, orden) => {
+      return totalGanancias + orden.obtenerTotal();
+    }, 0);
+    return total;
+  };
 }
 
-export {Restaurante};
+export { Restaurante };
